@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Delete Student</title>
+	<style>
+		 body {
+            background-color: #1c1c1c; /* Teal background */
+            font-family: 'Arial', sans-serif; /* Font style */
+            color: #ffffff; /* Text color */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        #deleteBox {
+            background-color: #333333; /* Slightly lighter background for the box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            padding: 30px; /* Padding for the box */
+            width: 100%; /* Responsive width */
+            max-width: 400px; /* Max width for the box */
+            text-align: center; /* Center text inside the box */
+        }
+
+        label {
+            display: block; /* Block display for labels */
+            margin-bottom: 10px; /* Space below labels */
+            font-weight: bold; /* Bold font for labels */
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 10px; /* Padding inside inputs */
+            margin-bottom: 20px; /* Space below inputs */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #2a2a2a; /* Dark input background */
+            color: #ffffff; /* Input text color */
+            font-size: 16px; /* Font size */
+        }
+
+        input[type="submit"] {
+            background-color: chartreuse; /* Red color for delete button */
+            color: black; /* Text color */
+            padding: 10px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            width: 100%; /* Full width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: cyan; /* Darker shade on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            #deleteBox {
+                width: 90%; /* Responsive width */
+            }
+        }
+	</style>
+</head>
+<body>
+	<!-- <h1>Welcome to delete page</h1> -->
+	<div id = deleteBox>
+		<form th:object = "${idObj}" th:action="@{/deleteStatus}" method="post">
+	        <label for="id">Enter Student ID to Delete:</label>
+	        <input type="number" th:field="*{id}" placeholder="Enter Student ID" required> <br>
+	        <input type="submit">
+	    </form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Students</title>
+    <style>
+        body {
+            background-color: #1c1c1c; /* Light cyan for a softer look */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #searchBox {
+            background-color: #333333;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px; /* Max width to control the size */
+            border: 2px solid;
+        }
+
+        label {
+            font-weight: bold;
+            color: white; /* Dark teal for labels */
+        }
+
+        /* Flex container for form groups */
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label, .form-group select, .form-group input[type="text"] {
+            width: 48%; /* Each element takes up half of the space */
+        }
+
+        select, input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: chartreuse;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: cyan; /* Darker shade on hover */
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-group label, .form-group select, .form-group input[type="text"] {
+                width: 100%; /* Full width for smaller screens */
+                margin-bottom: 10px;
+            }
+
+            #searchBox {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="searchBox">
+        <form th:action="@{/searchResults}" method="post">
+            <!-- First drop-down and input field in a row -->
+            <div class="form-group">
+                <label for="field1">Select Field:</label>
+                <select id="field1" name="field1">
+                    <option value="name">Name</option>
+                    <option value="city">City</option>
+                    <option value="branch">Branch</option>
+                    <option value="rollno">Rollno</option>
+                    <option value="age">Age</option>
+                    <option value="course">Course</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fieldValue1">Enter Value:</label>
+                <input type="text" id="fieldValue1" name="fieldValue1" placeholder="Enter value" required>
+            </div>
+
+            <!-- Second drop-down and input field in a row -->
+            <div class="form-group">
+                <label for="field2">Select Field 2:</label>
+                <select id="field2" name="field2">
+                    <option value="none">None</option> <!-- Optional drop-down -->
+                    <option value="name">Name</option>
+                    <option value="city">City</option>
+                    <option value="branch">Branch</option>
+                    <option value="rollno">Rollno</option>
+                    <option value="age">Age</option>
+                    <option value="course">Course</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fieldValue2">Enter Value for Field 2 (Optional):</label>
+                <input type="text" id="fieldValue2" name="fieldValue2" placeholder="Enter value">
+            </div>
+
+            <!-- Third drop-down and input field in a row -->
+            <div class="form-group">
+                <label for="field3">Select Field 3:</label>
+                <select id="field3" name="field3">
+                    <option value="none">None</option> <!-- Optional drop-down -->
+                    <option value="name">Name</option>
+                    <option value="city">City</option>
+                    <option value="branch">Branch</option>
+                    <option value="rollno">Rollno</option>
+                    <option value="age">Age</option>
+                    <option value="course">Course</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fieldValue3">Enter Value for Field 3 (Optional):</label>
+                <input type="text" id="fieldValue3" name="fieldValue3" placeholder="Enter value">
+            </div>
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+</body>
+</html>

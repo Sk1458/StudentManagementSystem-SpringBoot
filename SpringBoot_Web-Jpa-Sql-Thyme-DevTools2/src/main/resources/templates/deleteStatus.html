@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Status</title>
+    <style>
+        body {
+            background-color: #1c1c1c; /* Dark background */
+            font-family: 'Arial', sans-serif; /* Font style */
+            color: #ffffff; /* Text color */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            text-align: center; /* Center the content */
+        }
+
+        #statusBox {
+            background-color: #333333; /* Slightly lighter background for the box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            padding: 40px; /* Padding for the box */
+            width: 100%; /* Responsive width */
+            max-width: 500px; /* Max width for the box */
+        }
+
+        h1 {
+            font-size: 24px; /* Larger text size for message */
+            margin-bottom: 30px; /* Space below the message */
+            color: white ; /* Bright green for success message */
+        }
+
+        a {
+            color: chartreuse ; /* Cyan color for the link */
+            text-decoration: none; /* Remove underline */
+            font-size: 18px; /* Font size for link */
+            transition: color 0.3s ease; /* Smooth transition */
+            padding: 10px 20px; /* Padding for the link */
+            border: 2px solid chartreuse; /* Cyan border */
+            border-radius: 5px; /* Rounded corners for the button */
+        }
+
+        a:hover {
+            color: black; /* White color on hover */
+            background-color: cyan ; /* Cyan background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="statusBox">
+        <h1 th:text="${message}"></h1>
+        <a th:href="@{/home}">Get back to Home page</a>
+    </div>
+</body>
+</html>

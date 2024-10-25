@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.Thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<style>
+		
+		body {
+            margin: 0;
+            background: linear-gradient(135deg, chartreuse , #1c1c1c 20%, #1c1c1c 80%, chartreuse);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        header {
+            background-color: #1c1c1c ; /* Header background color */
+            color: white; /* Header text color */
+            width: 100%; /* Full width */
+            text-align: center;
+            padding: 15px 0; /* Padding for header */
+            font-size: 24px; /* Header text size */
+            font-weight: bold; /* Bold text */
+            position: absolute; /* Positioning */
+            top: 0; /* Top alignment */
+            left: 0; /* Left alignment */
+            z-index: 2; /* Ensure it is above the background */
+        }
+
+        #selectionBox {
+            display: grid; /* Enable grid layout */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Space between items */
+            padding: 50px;
+            background-color: #333333 ;
+            border-radius: 15px;
+            border: 2px solid; /* Border color and width */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px; /* Set max width for the grid */
+            width: 100%; /* Full width */
+            margin-top: 130px;
+            position: relative; /* To keep stacking context */
+            z-index: 2; /* Above the background */
+        }
+
+        #selectionBox a {
+            display: block;
+            padding: 20px;
+            background-color: chartreuse;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px; /* Rounded corners */
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center; /* Center text in anchor */
+        }
+
+        #selectionBox a:hover {
+            background-color: cyan;
+            transform: translateY(-2px);
+        }
+
+        #selectionBox a:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            display: flex; /* Flexbox for layout */
+            padding: 5px 0;
+            justify-content: space-between; /* Space between elements */
+            align-items: center; /* Center items vertically */
+            background-color: black ; /* Footer background */
+            width: 100%; /* Full width */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow for footer */
+            position: relative; /* Relative positioning */
+            margin-top: auto; /* Push footer to the bottom */ 
+            z-index: 2; /* Ensure footer is above the background */ 
+        }
+
+        footer p {
+            color: white; /* Footer text color */
+            font-size: 15px; /* Font size for footer */
+        }
+	</style>
+</head>
+<body>
+	<!-- <h1>Welcome to home</h1> -->
+	
+	<header>
+        Student Management System
+    </header>
+    
+	<div id = "selectionBox">
+		<div> <a th:href = "@{/insert}" method = "get">Enter Student Data</a> </div> <br>
+		<div> <a th:href = "@{/update}" method = "get">Update Student Data</a> </div> <br>
+		<div> <a th:href = "@{/delete}" method = "get">Delete Student Data</a> </div> <br>
+		<div> <a th:href = "@{/view}" method = "get">View Students</a> </div> <br>
+		<div> <a th:href = "@{/search}" method = "get">Search Students</a> </div>
+	</div>
+	
+	<footer>
+        <p><strong>API & Microservices Project</strong></p>
+        <p><strong>Done by 21MH1A05C3</strong></p>
+    </footer>
+</body>
+</html>

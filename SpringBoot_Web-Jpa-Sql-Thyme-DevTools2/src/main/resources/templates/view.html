@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Students</title>
+    <style>
+        body {
+            background-color: #1c1c1c ;  /* Warm orange background */
+            font-family: 'Arial', sans-serif; /* Font style */
+            color: #ffffff; /* Text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        #viewBox {
+            background-color: #2e2e2e; /* Dark background for the box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            padding: 20px; /* Padding for content */
+            max-width: 800px; /* Max width of the table */
+            width: 100%; /* Full width */
+            height: 70vh;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%; /* Full width table */
+            border-collapse: collapse; /* Remove space between table cells */
+            background-color: #3c3c3c; /* Darker background for table */
+        }
+
+        th, td {
+            padding: 12px 15px; /* Padding for table cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #444; /* Border between rows */
+            color: #ffffff; /* Text color */
+        }
+
+        th {
+            background-color: #00796b; /* Header background */
+            color: #ffffff; /* Header text color */
+            font-weight: bold; /* Bold header text */
+            text-transform: uppercase; /* Uppercase header text */
+        }
+
+        tr:hover {
+            background-color: #505050; /* Hover effect on rows */
+        }
+
+        td {
+            font-size: 14px; /* Smaller text for table data */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #viewBox {
+                width: 90%; /* Full width on smaller screens */
+            }
+
+            th, td {
+                font-size: 12px; /* Smaller text on mobile */
+                padding: 8px; /* Reduce padding on mobile */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="viewBox">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>City</th>
+                    <th>Age</th>
+                    <th>Rollno</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="myObj, cnt:${stuView}">
+                    <td th:text="${cnt.count}"></td>
+                    <td th:text="${myObj.id}"></td>
+                    <td th:text="${myObj.name}"></td>
+                    <td th:text="${myObj.branch}"></td>
+                    <td th:text="${myObj.city}"></td>
+                    <td th:text="${myObj.age}"></td>
+                    <td th:text="${myObj.rollno}"></td>
+                    <td th:text="${myObj.course}"></td>
+                </tr>
+            </tbody>
+        </table> <br>
+    </div>
+    
+</body>
+</html>

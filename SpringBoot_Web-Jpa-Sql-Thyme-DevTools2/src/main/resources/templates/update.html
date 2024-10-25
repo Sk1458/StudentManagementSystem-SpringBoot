@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Update Student</title>
+	<style>
+		
+		body {
+            background-color: #1c1c1c; /* Dark background */
+            font-family: 'Arial', sans-serif; /* Font style */
+            color: #ffffff; /* Text color */
+            display: flex; /* Flexbox for centering */
+            flex-direction: column; /* Arrange items in a column */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            position: relative; /* Relative positioning for footer */
+        }
+
+        #updateBox {
+            background-color: #3c3c3c; /* Slightly lighter background for the box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            padding: 30px; /* Padding for the box */
+            width: 100%; /* Responsive width */
+            max-width: 600px; /* Max width for the box */
+            max-height: 80vh; /* Max height for the box */
+            overflow-y: auto; /* Scrollbar only on overflow */
+            margin-bottom: 40px; /* Space below the box */
+        }
+
+        h1 {
+            text-align: center; /* Center the heading */
+            color: #00ff00; /* Bright green color for heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space below labels */
+            font-weight: bold; /* Bold font for labels */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 10px; /* Padding inside inputs */
+            margin-bottom: 20px; /* Space below inputs */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            background-color: #2a2a2a; /* Dark input background */
+            color: #ffffff; /* Input text color */
+        }
+
+        input[type="submit"] {
+            background-color: chartreuse; /* Submit button color */
+            color: black ; /* Text color */
+            padding: 10px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            width: 100%; /* Full width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: cyan ; /* Darker shade on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            #updateBox {
+                width: 90%; /* Responsive width */
+            }
+        }
+	</style>
+</head>
+<body>
+	<!-- <h1>welcome to update page</h1> -->
+	<div id = "updateBox">
+		<form th:object = "${upForm}" th:action="@{/updateStatus}" method="post">
+	        <label for="id">Student ID:</label>
+	        <input type="number" th:field="*{id}" placeholder="Enter Student ID"> <br>
+	        
+	        <label for="name">Name:</label>
+	        <input type="text" th:field="*{name}" placeholder="Enter Name"> <br>
+	        
+	        <label for="branch">Branch:</label>
+	        <input type="text" th:field="*{branch}" placeholder="Enter Branch"> <br>
+	        
+	        <label for="city">City:</label>
+	        <input type="text" th:field="*{city}" placeholder="Enter City"> <br>
+	        
+	        <label for="age">Age:</label>
+	        <input type="number" th:field="*{age}" placeholder="Enter Age"> <br>
+	        
+	        <label for="rollno">RollNo:</label>
+	        <input type="text" th:field="*{rollno}" placeholder="Enter RollNo"> <br>
+	        
+	        <label for="city">Course:</label>
+	        <input type="text" th:field="*{course}" placeholder="Enter Course"> <br>
+	        
+	        <input type="submit">
+	    </form>
+	</div>	   
+	
+	<!-- <footer>
+	    <p> Done By 21MH1A05C3 </p>
+	</footer>  -->
+</body>
+</html>

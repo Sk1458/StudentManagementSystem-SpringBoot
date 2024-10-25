@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <style>
+        
+        body {
+            background-color: #1c1c1c; /* Dark background */
+            font-family: Arial, sans-serif;
+            color: #e0f7fa; /* Light text for contrast */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: white; /* Soft teal */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #showResult {
+            background-color: #333333; /* Dark background for the box */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Slight shadow */
+            max-width: 90%;
+            width: 1000px;
+        }
+
+        table {
+            width: 100%; /* Full width table */
+            border-collapse: collapse; /* Remove space between table cells */
+            background-color: #3c3c3c; /* Darker background for table */
+        }
+
+        th, td {
+            padding: 12px 15px; /* Padding for table cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #444; /* Border between rows */
+            color: #ffffff; /* Text color */
+        }
+
+        th {
+            background-color: #00796b; /* Header background */
+            color: #ffffff; /* Header text color */
+            font-weight: bold; /* Bold header text */
+            text-transform: uppercase; /* Uppercase header text */
+        }
+
+        tr:hover {
+            background-color: #505050; /* Hover effect on rows */
+        }
+
+        td {
+            font-size: 14px; /* Smaller text for table data */
+        }
+        
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: black;
+            background-color: chartreuse;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: cyan ; /* Darker teal on hover */
+            color: black;
+        }
+
+        /* Make the table scrollable on small devices */
+        @media (max-width: 600px) {
+            #showResult {
+                width: 100%;
+            }
+
+            #tb {
+                overflow-x: auto;
+                display: block;
+            }
+
+            #tb th, #tb td {
+                font-size: 14px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <div id="showResult"> 
+        <table id="tb">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Branch</th>
+                    <th>Age</th>
+                    <th>RollNo</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${searchResults}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.city}"></td>
+                    <td th:text="${student.branch}"></td>
+                    <td th:text="${student.age}"></td>
+                    <td th:text="${student.rollno}"></td>
+                    <td th:text="${student.course}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <a th:href="@{/home}">Get back to home page</a>
+</body>
+</html>
